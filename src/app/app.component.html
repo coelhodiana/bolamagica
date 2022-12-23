@@ -1,7 +1,7 @@
 <div class="container">
   <div class="ball" (click)="shake()">
-
-    <h2 class="ball__answer">{{randomNumber ? answers[randomNumber] : 'shake'}}</h2>
-
+    <h2 class="ball__answer">
+      {{ randomNumber ? answers[randomNumber - 1] : 'shake' }}
+    </h2>
   </div>
 </div>

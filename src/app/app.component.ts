@@ -31,7 +31,9 @@ export class AppComponent {
 
   randomNumber: number | null = null;
 
+
+
   shake() {
-    this.randomNumber = Math.floor(Math.random() * (19 - 0 + 1) + 0);
+    this.randomNumber = Math.floor(Math.random() * (20 - 1 + 1) + 1);
   }
 }
