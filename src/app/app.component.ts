@@ -6,8 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'bola mágica';
-
   answers = [
     'It is certain.',
     'It is decidedly so.',
