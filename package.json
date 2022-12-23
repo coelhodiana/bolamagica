@@ -12,7 +12,8 @@
     "cypress:open": "cypress open --config-file=cypress.config.ts",
     "cypress:run": "cypress run",
     "lint": "ng lint",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "deploy": "ng build --base-href=/"
   },
   "private": true,
   "dependencies": {
