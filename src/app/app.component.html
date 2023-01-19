@@ -1,7 +1,11 @@
 <div class="container">
-  <div class="ball" (click)="shake()">
-    <h2 class="ball__answer">
-      {{ randomNumber ? answers[randomNumber - 1] : 'shake' }}
-    </h2>
+  <div class="ball" [ngClass]="shaked ? 'shake' : ''">
+    <div class="awnser-container" (click)="shake()">
+      <div class="awnser-container__triangle">
+        <p class="awnser-container__answer">
+          {{ randomNumber ? answers[randomNumber - 1] : "shake" }}
+        </p>
+      </div>
+    </div>
   </div>
 </div>

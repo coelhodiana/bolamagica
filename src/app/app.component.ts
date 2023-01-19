@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   answers = [
     'It is certain.',
     'It is decidedly so.',
@@ -30,10 +30,24 @@ export class AppComponent {
   ];
 
   randomNumber: number | null = null;
+  shaked = false;
 
+  constructor() {}
 
+  ngOnInit(): void {
+    console.log('aqui');
+  }
 
   shake() {
-    this.randomNumber = Math.floor(Math.random() * (20 - 1 + 1) + 1);
+    this.randomNumber = null;
+
+    // this.randomNumber = Math.floor(Math.random() * (20 - 1 + 1) + 1);
+
+    this.shaked = true;
+
+    setTimeout(() => {
+      this.shaked = false;
+      this.randomNumber = Math.floor(Math.random() * (20 - 1 + 1) + 1);
+    }, 1000);
   }
 }
