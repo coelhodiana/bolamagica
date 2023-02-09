@@ -6,13 +6,17 @@ import { GymComponent } from './pages/gym/gym.component';
 
 const routes: Routes = [
   {
-    path: 'gym',
-    component: GymComponent
+    path: '',
+    redirectTo: '/gym',
+    pathMatch: 'full',
   },
   {
-    path: '',
-    pathMatch: 'full',
+    path: 'ball',
     component: BallComponent,
+  },
+  {
+    path: 'gym',
+    component: GymComponent
   },
 ];
 
