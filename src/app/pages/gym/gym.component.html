@@ -1,0 +1,23 @@
+<section class="container">
+
+  <div class="repetitions">
+    <span>repetições</span>
+    <div>
+      <h1>{{repetitionsCount}}</h1>
+      <button (click)="resetCount()">reset</button>
+    </div>
+  </div>
+
+  <div *ngIf="resting">
+    <h1>RELAXE! RELAXE! RELAXE!</h1>
+  </div>
+
+  <div>
+    <form [formGroup]="form">
+      <input type="number" placeholder="duração em segundos" formControlName="duration">
+    </form>
+
+    <button (click)="startRest()">descansar</button>
+  </div>
+</section>
+
