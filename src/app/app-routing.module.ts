@@ -7,7 +7,7 @@ import { GymComponent } from './pages/gym/gym.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/gym',
+    redirectTo: '/ball',
     pathMatch: 'full',
   },
   {

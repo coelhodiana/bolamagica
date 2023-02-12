@@ -4,15 +4,16 @@
     <span>repetições</span>
     <div>
       <h1>{{repetitionsCount}}</h1>
-      <button (click)="resetCount()">reset</button>
+      <button (click)="resetCount()" *ngIf="!resting">reset</button>
     </div>
   </div>
 
   <div *ngIf="resting">
+    <h1>{{ timer$ | async }}</h1>
     <h1>RELAXE! RELAXE! RELAXE!</h1>
   </div>
 
-  <div>
+  <div *ngIf="!resting">
     <form [formGroup]="form">
       <input type="number" placeholder="duração em segundos" formControlName="duration">
     </form>

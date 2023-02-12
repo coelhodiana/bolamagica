@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { scan, takeWhile, timer } from 'rxjs';
 
 @Component({
   selector: 'app-gym',
@@ -7,18 +8,26 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./gym.component.scss'],
 })
 export class GymComponent {
-  repetitionsCount = 0;
-
+  
   form = this.fb.group({
     duration: [100, Validators.required],
   });
 
+  repetitionsCount = 1;
+
   resting = false;
+
+  timer$: any;
 
   constructor(private fb: FormBuilder) {}
 
   startRest() {
     this.resting = true;
+
+    this.timer$ = timer(0, 1000).pipe(
+      scan((acc) => --acc, this.form.value.duration!),
+      takeWhile((x) => x >= 0)
+    );
 
     setTimeout(() => {
       this.resting = false;
