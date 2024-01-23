@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { BallComponent } from './pages/ball/ball.component';
 import { GymComponent } from './pages/gym/gym.component';
+import { FormArrayComponent } from './pages/form-array/form-array.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'gym',
     component: GymComponent
+  },
+  {
+    path: 'formarray',
+    component: FormArrayComponent
   },
 ];
 

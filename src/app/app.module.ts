@@ -8,13 +8,15 @@ import { BallComponent } from './pages/ball/ball.component';
 import { GymComponent } from './pages/gym/gym.component';
 import { ShakeDirective } from './shared/directives/shake.directive';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { FormArrayComponent } from './pages/form-array/form-array.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ShakeDirective,
     BallComponent,
-    GymComponent
+    GymComponent,
+    FormArrayComponent
   ],
   imports: [
     BrowserModule,
