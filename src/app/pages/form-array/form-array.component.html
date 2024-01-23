@@ -1,13 +1,36 @@
-<p>form-array works!</p>
-<form [formGroup]="form">
-  <div formArrayName="items" *ngFor="let item of items.controls; let i = index">
-    <div [formGroupName]="i" style="margin-bottom:3rem; display: flex;">
-      <input formControlName="name" type="text" name="name" id="name" />
-      <p>as</p>
-      <input formControlName="alias" type="text" name="alias" id="alias" />
-      <button (click)="deleteItem(i)">remover</button>
-    </div>
-  </div>
+<section style="margin: 2rem;">
 
-  <button (click)="addItem()">Add Item</button>
-</form>
+  <!-- <h1>Variáveis</h1>
+  <form [formGroup]="formMultVariables" style="margin-bottom: 3rem; display: flex; flex-direction: column;max-width: 40rem; width: 30rem;">
+    <label for="variables">informe muitas variáveis separado-as por vírgula:</label>
+    <textarea type="text" formControlName="variables" id="variables" name="variables"></textarea>
+    <button (click)="addItemsSeparatedByComma()">adicionar</button>
+  </form> -->
+
+  <form [formGroup]="form">
+    <h2>variáveis selecionadas</h2>
+    <div formArrayName="items" *ngFor="let item of items.controls; let i = index">
+      <div [formGroupName]="i" style="margin-bottom: 3rem; display: flex; gap: 1rem; align-items: center;">
+        <div style="display: flex;flex-direction: column;">
+          <label for="name">informe o nome da variável na origem</label>
+          <input formControlName="name" type="text" name="name" id="name" />
+        </div>
+        <p>as</p>
+        <div style="display: flex;flex-direction: column;">
+          <label for="name">informe o nome da variável no destino</label>
+          <input formControlName="alias" type="text" name="alias" id="alias" />
+        </div>
+        <button (click)="deleteItem(i)">remover</button>
+      </div>
+    </div>
+
+    <!-- <button (click)="addItem()" style="margin-bottom: 3rem;">adicionar 1 variável</button> -->
+    <button (click)="save()">salvar</button>
+
+    <div *ngIf="showVariables">
+      <h4>Variáveis salvas</h4>
+      <p>{{ form.value | json }}</p>
+    </div>
+  </form>
+
+</section>

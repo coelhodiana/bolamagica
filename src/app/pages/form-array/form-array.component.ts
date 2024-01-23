@@ -1,5 +1,13 @@
-import { AbstractControl, FormArray, FormBuilder, FormGroup } from '@angular/forms';
-import { AttributeItem, TablesService } from './../../shared/services/tables.service';
+import {
+  AbstractControl,
+  FormArray,
+  FormBuilder,
+  FormGroup,
+} from '@angular/forms';
+import {
+  AttributeItem,
+  TablesService,
+} from './../../shared/services/tables.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -14,16 +22,21 @@ export class FormArrayComponent implements OnInit {
     items: this.fb.array([]),
   });
 
+  formMultVariables = this.fb.group({
+    variables: ''
+  })
+
+  showVariables = false;
+
   constructor(private tables: TablesService, private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.tables.getAttributes().subscribe((items) => {
-      console.log(items)
-      this.listItems(items)
-    })
+      console.log(items);
+      this.listItems(items);
+    });
 
-
-    console.log('asd'+this.attributes)
+    this.addItemsSeparatedByComma();
   }
 
   get items() {
@@ -33,7 +46,7 @@ export class FormArrayComponent implements OnInit {
   createItem(name: string = '', alias: string = '') {
     return this.fb.group({
       name,
-      alias
+      alias,
     });
   }
 
@@ -42,14 +55,31 @@ export class FormArrayComponent implements OnInit {
   }
 
   deleteItem(i: number) {
-    this.items.removeAt(i)
+    this.items.removeAt(i);
   }
 
   listItems(items: AttributeItem[]) {
-    console.log(this.attributes);
-
-    items.map((attribute: AttributeItem) =>{
+    items.map((attribute: AttributeItem) => {
       return this.addItem(attribute.name, attribute.alias);
-    })
+    });
+  }
+
+  addItemsSeparatedByComma() {
+    const variablesString = this.formMultVariables.controls['variables'].value;
+
+    if(variablesString) {
+
+      console.log(variablesString.split(','));
+
+      const variables = variablesString.split(',').map((item) => {
+        return { name: item, alias: '' };
+      });
+
+      this.listItems(variables)
+    }
+  }
+
+  save() {
+    this.showVariables = !this.showVariables
   }
 }

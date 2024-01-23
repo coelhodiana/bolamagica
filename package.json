@@ -1,5 +1,5 @@
 {
-  "name": "boilerplate-angular",
+  "name": "bolamagica",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -48,6 +48,7 @@
     "@types/jest": "^29.0.0",
     "@typescript-eslint/eslint-plugin": "5.36.2",
     "@typescript-eslint/parser": "5.36.2",
+    "angular-cli-ghpages": "^1.0.7",
     "cypress": "^10.7.0",
     "eslint": "^8.23.0",
     "eslint-plugin-jest-dom": "^4.0.2",
